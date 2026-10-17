@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Light & Dark Theme CSS Custom Properties ── */
+:root {
+  --page-bg: #F8F9FA;
+  --card-bg: #FFFFFF;
+  --subtle-bg: #F3F4F6;
+  --border: #E5E7EB;
+  --border-strong: #D1D5DB;
+
+  --text-primary: #111111;
+  --text-secondary: #4B5563;
+  --text-muted: #9CA3AF;
+
+  --primary: #111111;
+  --primary-text: #FFFFFF;
+  --primary-hover: #000000;
+  --accent: #D62828;
+  --accent-hover: #B91C1C;
+  --accent-tint: #FEF2F2;
+  --accent-text: #991B1B;
+
+  --sidebar-bg: #0D0D0D;
+  --sidebar-border: rgba(255, 255, 255, 0.07);
+  --sidebar-text: rgba(255, 255, 255, 0.45);
+  --sidebar-active: #FFFFFF;
+  --sidebar-active-bg: rgba(255, 255, 255, 0.09);
+  --sidebar-muted: rgba(255, 255, 255, 0.25);
+
+  --input-bg: #F3F4F6;
+  --input-focus: #FFFFFF;
+  --focus-border: #111111;
+
+  --success-bg: #F0FDF4;
+  --success-text: #166534;
+  --success-border: #BBF7D0;
+
+  --warning-bg: #FFFBEB;
+  --warning-text: #92400E;
+  --warning-border: #FDE68A;
+
+  --danger-bg: #FEF2F2;
+  --danger-text: #991B1B;
+  --danger-border: #FECACA;
+
+  --info-bg: #EFF6FF;
+  --info-text: #1E40AF;
+  --info-border: #BFDBFE;
+
+  --stat-courses: #D62828;
+  --stat-teachers: #198754;
+  --stat-students: #2563EB;
+  --stat-pending: #F59E0B;
+
+  --ai-glow-red: #EF4444;
+  --ai-glow-crimson: #DC2626;
+  --ai-glow-silver: #64748B;
+  --ai-hero-bg: #F8F9FA;
+  --ai-card-bg: #FFFFFF;
+  --ai-border: rgba(214, 40, 40, 0.2);
+}
+
+[data-theme="dark"] {
+  --page-bg: #0F172A;
+  --card-bg: #1E293B;
+  --subtle-bg: #334155;
+  --border: #334155;
+  --border-strong: #475569;
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+
+  --primary: #F8FAFC;
+  --primary-text: #0F172A;
+  --primary-hover: #E2E8F0;
+  --accent: #EF4444;
+  --accent-hover: #DC2626;
+  --accent-tint: rgba(239, 68, 68, 0.18);
+  --accent-text: #FCA5A5;
+
+  --sidebar-bg: #090D16;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-text: rgba(255, 255, 255, 0.6);
+  --sidebar-active: #FFFFFF;
+  --sidebar-active-bg: rgba(255, 255, 255, 0.12);
+  --sidebar-muted: rgba(255, 255, 255, 0.4);
+
+  --input-bg: #1E293B;
+  --input-focus: #0F172A;
+  --focus-border: #F8FAFC;
+
+  --success-bg: rgba(22, 101, 52, 0.3);
+  --success-text: #4ADE80;
+  --success-border: rgba(74, 222, 128, 0.3);
+
+  --warning-bg: rgba(146, 64, 14, 0.3);
+  --warning-text: #FBBF24;
+  --warning-border: rgba(251, 191, 36, 0.3);
+
+  --danger-bg: rgba(153, 27, 27, 0.3);
+  --danger-text: #F87171;
+  --danger-border: rgba(248, 113, 113, 0.3);
+
+  --info-bg: rgba(30, 64, 175, 0.3);
+  --info-text: #60A5FA;
+  --info-border: rgba(96, 165, 250, 0.3);
+
+  --stat-courses: #EF4444;
+  --stat-teachers: #22C55E;
+  --stat-students: #3B82F6;
+  --stat-pending: #F59E0B;
+
+  --ai-glow-red: #EF4444;
+  --ai-glow-crimson: #FF2E4C;
+  --ai-glow-silver: #E2E8F0;
+  --ai-hero-bg: #090D16;
+  --ai-card-bg: rgba(30, 41, 59, 0.6);
+  --ai-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  background-color: var(--page-bg);
+  color: var(--text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Justified long-form text — used for assignment descriptions, AI
+   feedback, teacher comments, and similar prose blocks throughout the
+   app. text-justify: inter-word + hyphens helps reduce the uneven
+   word-gap spacing that plain CSS justify produces, especially in
+   narrow containers like cards. */
+.prose-justify {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Preserves exact whitespace, line breaks, and blank-line paragraph
+   spacing from plain-text input — e.g. assignment descriptions typed
+   into a textarea. pre-wrap keeps long lines wrapping responsively
+   (unlike plain `pre`, which would force horizontal scrolling). */
+.preserve-format {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ── Global Micro-Animations & UI Utilities ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmerPulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.5; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.skeleton-shimmer {
+  background: var(--border);
+  animation: shimmerPulse 1.5s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+/* Smooth Card Elevation Hover */
+.card-hover-elevate {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+.card-hover-elevate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.12);
+}
+
+/* Interactive Button Press State */
+.btn-interactive {
+  transition: transform 0.1s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.btn-interactive:active {
+  transform: scale(0.98);
+}
+
+/* Table Row Hover */
+.table-row-hover {
+  transition: background-color 0.15s ease;
+}
+.table-row-hover:hover {
+  background-color: var(--subtle-bg);
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--subtle-bg);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}

@@ -1,0 +1,227 @@
+﻿
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\components\CourseTabs.jsx
+  2:7  error  'TABS' is assigned a value but never used  no-unused-vars
+
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\components\Layout.jsx
+  341:10  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  339 |       {/* ΓöÇΓöÇ Mobile top bar (<768px) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */}
+  340 |       <div className="mobile-topbar" style={{ display: "none", background: C.sidebarBg, position: "sticky", top: 0, zIndex: 100, alignItems: "center", justifyContent: "space-between", padding: "10px 16px", borderBottom: `1px solid ${C.sidebarBorder}` }}>
+> 341 |         <AlphaLogo size="sm" />
+      |          ^^^^^^^^^ This component is created during render
+  342 |         <button onClick={() => setMobileOpen(!mobileOpen)} style={{ background: "none", border: "none", cursor: "pointer", color: "rgba(255,255,255,0.7)", fontSize: "22px", padding: "2px", display: "flex", alignItems: "center" }}>
+  343 |           <i className={mobileOpen ? "ti ti-x" : "ti ti-menu-2"} />
+  344 |         </button>
+
+  65 |   const initials = (user?.fullName || "U").split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
+  66 |
+> 67 |   const AlphaLogo = ({ size = "md" }) => {
+     |                     ^^^^^^^^^^^^^^^^^^^^^^
+> 68 |     const s = size === "sm"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 69 |       ? { wrap: { padding: "5px 8px", borderRadius: "5px" }, red: { fontSize: "11px", padding: "3px 6px", borderRadius: "3px" }, txt: { fontSize: "7px", paddingLeft: "6px" } }
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 76 |     );
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 77 |   };
+     | ^^^^ The component is created during render here
+  78 |
+  79 |   const sidebarContent = (iconOnly = false) => (
+  80 |     <>  react-hooks/static-components
+  352:16  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  350 |           <div style={{ width: "240px", background: C.sidebarBg, display: "flex", flexDirection: "column", overflowY: "auto" }}>
+  351 |             <div style={{ padding: "14px 16px", borderBottom: `1px solid ${C.sidebarBorder}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+> 352 |               <AlphaLogo size="sm" />
+      |                ^^^^^^^^^ This component is created during render
+  353 |               <button onClick={() => setMobileOpen(false)} style={{ background: "none", border: "none", cursor: "pointer", color: C.sidebarMuted, fontSize: "20px", padding: "2px", display: "flex", alignItems: "center" }}>
+  354 |                 <i className="ti ti-x" />
+  355 |               </button>
+
+  65 |   const initials = (user?.fullName || "U").split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
+  66 |
+> 67 |   const AlphaLogo = ({ size = "md" }) => {
+     |                     ^^^^^^^^^^^^^^^^^^^^^^
+> 68 |     const s = size === "sm"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 69 |       ? { wrap: { padding: "5px 8px", borderRadius: "5px" }, red: { fontSize: "11px", padding: "3px 6px", borderRadius: "3px" }, txt: { fontSize: "7px", paddingLeft: "6px" } }
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 76 |     );
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 77 |   };
+     | ^^^^ The component is created during render here
+  78 |
+  79 |   const sidebarContent = (iconOnly = false) => (
+  80 |     <>                                                 react-hooks/static-components
+  611:11  error  'user' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 no-unused-vars
+
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\components\teacher\AnalyticsPanel.jsx
+  43:21  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  41 |   }, [courseId]);
+  42 |
+> 43 |   useEffect(() => { load(); }, [load]);
+     |                     ^^^^ Avoid calling setState() directly within an effect
+  44 |
+  45 |   const handleRecompute = async () => {
+  46 |     setRecomputing(true);  react-hooks/set-state-in-effect
+
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\components\teacher\AssignmentsPanel.jsx
+  30:21  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  28 |   }, [courseId]);
+  29 |
+> 30 |   useEffect(() => { loadAll(); }, [loadAll]);
+     |                     ^^^^^^^ Avoid calling setState() directly within an effect
+  31 |
+  32 |   const addCriterion = () =>
+  33 |     setForm({ ...form, criteria: [...form.criteria, { label: "", max_marks: 5, description: "" }] });  react-hooks/set-state-in-effect
+
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\components\teacher\AttendancePanel.jsx
+  35:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  33 |
+  34 |   useEffect(() => {
+> 35 |     loadSessions();
+     |     ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  36 |     coursesApi.listRoster(courseId).then(({ data }) => setRoster(data));
+  37 |   }, [courseId, loadSessions]);
+  38 |  react-hooks/set-state-in-effect
+
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\components\teacher\PerformanceMetricCards.jsx
+  8:13  error  'T' is defined but never used  no-unused-vars
+
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\components\teacher\ThreeMeterChart.jsx
+  6:13  error  'T' is defined but never used  no-unused-vars
+
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\context\AuthContext.jsx
+  50:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\context\ThemeContext.jsx
+  45:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\pages\ForgotPassword.jsx
+  7:13  error  'T' is defined but never used  no-unused-vars
+
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\pages\Login.jsx
+  7:13  error  'T' is defined but never used  no-unused-vars
+
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\pages\StudentCourseDetail.jsx
+  189:41  error  'index' is defined but never used  no-unused-vars
+  422:31  error  'index' is defined but never used  no-unused-vars
+
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\pages\TeacherCourseDetail.jsx
+   4:47  error  'Btn' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           no-unused-vars
+  11:13  error  'T' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             no-unused-vars
+  15:9   error  'navigate' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             no-unused-vars
+  42:5   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  40 |   useEffect(() => {
+  41 |     coursesApi.getCourse(courseId).then(({ data }) => setCourse(data));
+> 42 |     loadDocuments();
+     |     ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  43 |     loadRoster();
+  44 |   }, [courseId, loadDocuments, loadRoster]);
+  45 |  react-hooks/set-state-in-effect
+
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\pages\TeacherSubmissions.jsx
+    8:13  error  'T' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              no-unused-vars
+   56:21  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  54 |   }, [assignmentId]);
+  55 |
+> 56 |   useEffect(() => { loadSubmissions(); loadAssignmentExtras(); }, [loadSubmissions, loadAssignmentExtras]);
+     |                     ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  57 |
+  58 |   const isPastDeadline = assignment?.due_date && new Date() > new Date(assignment.due_date);
+  59 |  react-hooks/set-state-in-effect
+  500:5   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  498 |
+  499 |   useEffect(() => {
+> 500 |     fetchReport();
+      |     ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  501 |   }, [fetchReport]);
+  502 |
+  503 |   const handleRecompute = async () => {                                                                                                                                          react-hooks/set-state-in-effect
+  534:23  error  Unexpected constant nullishness on the left-hand side of a `??` expression                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 no-constant-binary-expression
+  641:7   error  The value assigned to 'feedback' is not used in subsequent statements                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      no-useless-assignment
+
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\pages\admin\AdminCourses.jsx
+  26:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  24 |       .finally(() => setLoading(false));
+  25 |   };
+> 26 |   useEffect(load, []);
+     |             ^^^^ Avoid calling setState() directly within an effect
+  27 |
+  28 |   const handleCreate = async (e) => {
+  29 |     e.preventDefault();  react-hooks/set-state-in-effect
+
+C:\Users\hurma\OneDrive\Desktop\Documentos\smart edu\smartedu\frontend\src\pages\admin\AdminUsers.jsx
+  24:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  22 |       .finally(() => setLoading(false));
+  23 |   };
+> 24 |   useEffect(load, []);
+     |             ^^^^ Avoid calling setState() directly within an effect
+  25 |
+  26 |   const handleCreate = async (e) => {
+  27 |     e.preventDefault();  react-hooks/set-state-in-effect
+
+Γ£û 26 problems (26 errors, 0 warnings)
+
